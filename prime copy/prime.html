@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <input type="text" id="input-number" placeholder="Enter a number" />
+    <input type="submit" value="Get Result" id="result-btn" />
+    <h2 id="show-result"></h2>
+    <script>
+      document.getElementById("result-btn").addEventListener("click", () => {
+        let inputNumber = document.getElementById("input-number").value;
+        let number = Number(inputNumber);
+        let showResult = document.getElementById("show-result");
+
+        let isPrime = true;
+
+        if (number === 1) {
+          showResult.innerHTML = "1 is neither prime nor composite number.";
+        } else if (number > 1) {
+          // looping through 2 to number-1
+          for (let i = 2; i < number; i++) {
+            if (number % i == 0) {
+              isPrime = false;
+              break;
+            }
+          }
+
+          if (isPrime) {
+            showResult.innerHTML = `${number} is a prime number`;
+          } else {
+            showResult.innerHTML = `${number} is not a prime number`;
+          }
+        }
+
+        // check if number is less than 1
+        else {
+          showResult.innerHTML = "The number is not a prime number.";
+        }
+      });
+    </script>
+  </body>
+</html>
